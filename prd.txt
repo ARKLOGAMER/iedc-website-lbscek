@@ -1,0 +1,360 @@
+Product Requirements Document (PRD)
+Project: LBSCEK Alumni Crowdfunding Portal
+Version: 1.0 | Timeline: 18 Days to Event | Owner: Abel Sebastian (CBO)
+🔥 1. Project Overview
+
+A high-trust, lightweight, alumni-focused donation page enabling domestic UPI contributions and international bank transfers without setting up a payment gateway.
+The system must support:
+
+Fast deployment (< 48 hours)
+
+Zero KYC approvals
+
+Transparent reporting
+
+Emotional, inclusive storytelling to maximize conversions
+
+Real-time donor acknowledgments
+
+A single landing page that works globally
+
+🎯 2. Primary Objectives
+
+Enable alumni crowdfunding at scale using UPI (India) + SWIFT transfers (International).
+
+Deliver an emotional, conversion-optimized landing experience instead of a bland announcement.
+
+Collect verified donor data for acknowledgments and finance reconciliation.
+
+Publish transparent updates (donor wall, amounts, usage breakdown post-event).
+
+Stay compliant by using the college’s official bank account.
+
+🌐 3. Target Users
+Primary
+
+LBSCEK Alumni (India + International)
+
+Recent graduates + senior alumni
+
+NRE/NRO account holders
+
+Secondary
+
+College finance team (reconciliation)
+
+Student volunteers (ops + comms)
+
+Event core committee
+
+⚙️ 4. Core Features (Must-Haves)
+A. Landing Page
+
+A single-page UI with two contribution paths:
+
+1. Domestic (India) Contributions
+
+Display UPI QR (static image)
+
+Display UPI ID (text)
+
+“Scan & Pay” instruction
+
+Post-payment form link:
+
+Name
+
+Batch
+
+Amount paid
+
+UPI Transaction ID
+
+Email
+
+Phone
+
+Screenshot upload (optional)
+
+2. International Contributions
+
+Display bank details:
+
+Account Name
+
+Bank Name
+
+Account Number
+
+IFSC
+
+SWIFT Code
+
+Branch
+
+Simple transfer instructions
+
+Post-transfer form link capturing:
+
+Name
+
+Country
+
+Amount
+
+SWIFT Reference
+
+Email
+
+Phone
+
+Screenshot upload (optional)
+
+B. Donor Wall (Optional but High Impact)
+
+Name + Batch
+
+Contribution timestamp
+
+Auto-scroll feed
+
+Toggle: “Hide my name” option (privacy-friendly)
+
+C. Transparency Block
+
+Visual of allocation areas (e.g., “Innovation Stage Setup”, “Student Teams”, “Resource Zone”).
+
+Short note: “Full financial breakdown will be published post-event.”
+
+D. Backend Data Sync
+
+All form submissions → Google Sheets or Supabase table
+
+Separate sheets/tables:
+
+Domestic submissions
+
+International submissions
+
+Verified payments
+
+Manual verification workflow:
+
+Finance team matches transaction IDs
+
+Status column: Pending / Verified / Rejected
+
+E. Admin Dashboard (MVP Optional)
+
+If time allows:
+
+Total contributions
+
+Count of donors
+
+Verified payments summary
+
+Export CSV button
+
+Otherwise:
+Google Sheets + filters is enough.
+
+🎨 5. Design Requirements
+UI/UX Guidelines
+
+Clean, calm trust-first look
+
+Minimal text, high emotional resonance
+
+Tiered sections:
+
+Emotional story
+
+Domestic contributions
+
+International contributions
+
+Donor wall
+
+Transparency block
+
+Footer (college info)
+
+Tone
+
+Inclusive
+
+Nostalgic
+
+Community-driven
+
+No heavy jargon
+
+No “only top alumni” positioning
+
+🔧 6. Technical Requirements
+Frontend
+
+Next.js / React + Tailwind
+
+Hosted on Vercel
+
+Mobile-first layout
+
+QR stored as static asset
+
+Environmental configs for bank details
+
+Backend
+
+Two options:
+
+Option A (Fastest): Google Sheets API
+
+Use Google Forms → Auto-sync → Sheets
+
+No server required
+
+Vercel deploy remains static
+
+Option B: Supabase
+
+Tables: donors_domestic, donors_international
+
+RLS disabled for MVP
+
+Backend via API routes
+
+File Uploads
+
+Google Drive / Supabase Storage
+
+Limit to 2MB
+
+Accepted: PNG, JPEG, PDF
+
+🛠️ 7. Operational Workflow
+1. Alumni Pays
+
+Domestic → UPI QR
+
+International → SWIFT transfer
+
+2. Alumni Submits Form
+
+Captures metadata
+
+3. Sheet Auto-Populates
+
+Pending verification
+
+4. Finance Team Matches Transactions
+
+Adds status column updates
+
+Verified entries → Pushed automatically to Donor Wall (if enabled)
+
+5. Daily Summary
+
+Core team receives auto-email summary (optional)
+
+📢 8. Content Requirements
+A. Emotional Pitch
+
+Why this matters
+
+Legacy of alumni
+
+Building opportunities for future students
+
+B. Clear CTAs
+
+“Contribute from India”
+
+“Contribute from Outside India”
+
+“Submit Payment Details”
+
+C. Transparency Statement
+
+Short + crisp
+
+Build trust without complexity
+
+🧪 9. Testing Requirements
+Functional Testing
+
+QR loads properly
+
+Form submissions save accurately
+
+File uploads function
+
+International users can access site globally
+
+Layout behaves well on low bandwidth
+
+Usability Testing
+
+5–10 alumni test the flows
+
+Validate clarity + trust factor
+
+🚀 10. Deployment Plan
+Phase 1 (Day 1–2)
+
+UI + content + routing
+
+Integrate forms
+
+Add QR + bank info
+
+Deploy to Vercel
+
+Phase 2 (Day 3)
+
+Connect Sheets + test flows
+
+Donor wall (if included)
+
+Phase 3 (Day 4)
+
+Approvals + live launch
+
+Alumni blast + messaging rollout
+
+Phase 4 (Daily until event)
+
+Manual verification
+
+Add success stories
+
+Live donor recognition
+
+📌 11. Risks & Mitigation
+Risk	Impact	Mitigation
+International SWIFT delays	High	Encourage NRE/NRO UPI first
+Wrong transaction IDs	Medium	Ask for screenshot upload
+High traffic	Low	Vercel auto-scales
+Data mismatch	Medium	Finance team verifies daily
+Confusion between flows	Medium	Clear sectioning + icons
+🧲 12. Success Metrics
+Conversion Metrics
+
+20% alumni clicked donate
+
+10% completed payment
+
+80% form → verified success rate
+
+Engagement Metrics
+
+500+ page visits in first week
+
+Avg time on page > 45 sec
+
+Operational Metrics
+
+Zero failed submissions
+
+Daily verification < 30 min effort
