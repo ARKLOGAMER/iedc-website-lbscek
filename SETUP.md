@@ -15,8 +15,9 @@
 2. Get your Supabase URL and Anon Key from Project Settings > API
 3. Update `.env.local`:
    ```
-   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_SUPABASE_ANON_KEY=your-anon-key-here
+   PORT=5000
    ```
 
 ## 4. Install Dependencies

@@ -1,8 +1,8 @@
 // Quick script to verify Supabase connection
-const { createClient } = require('@supabase/supabase-js')
+import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dbbsbktehhousxoybnwt.supabase.co'
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiYnNia3RlaGhvdXN4b3libnd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NDQ2MzksImV4cCI6MjA4MDQyMDYzOX0.Toz_RJmcrWUHfi-5vNhGzL8TfcOGTWVGhZfJmtXhnBU'
+const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dbbsbktehhousxoybnwt.supabase.co'
+const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRiYnNia3RlaGhvdXN4b3libnd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NDQ2MzksImV4cCI6MjA4MDQyMDYzOX0.Toz_RJmcrWUHfi-5vNhGzL8TfcOGTWVGhZfJmtXhnBU'
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 
